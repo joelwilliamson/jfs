@@ -13,7 +13,7 @@ struct LBA_address {
 
 struct inode {
 	uint32_t size;
-	union address {
+	union {
 		struct CHS_address chs;
 		struct LBA_address lba;
 	};
@@ -23,6 +23,7 @@ struct dirent {
 	char name [256];
 	uint8_t mode; // Permission bytes, etc.
 	struct inode * node;
+};
 
 struct directory {
 	uint64_t numEntries;
